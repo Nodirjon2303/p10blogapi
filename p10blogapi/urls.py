@@ -22,7 +22,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(routers.urls))
+    path('', include(routers.urls)), 
+    path('auth/', include('rest_framework.urls')), 
+    path('rest-auth/', include('dj_rest_auth.urls')), 
+    path('rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('allauth/', include('allauth.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
